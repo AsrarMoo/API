@@ -51,7 +51,7 @@ class AuthController extends Controller
         $redirectUrl = '';
         switch ($user->user_type) {
             case 'Admin':
-                $redirectUrl = '/admin/dashboard';
+                $redirectUrl = '/admin';
                 break;
             case 'Doctor':
                 $redirectUrl = '/doctor/dashboard';
