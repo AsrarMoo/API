@@ -1,20 +1,14 @@
-# استخدم صورة PHP الرسمية مع Apache
+# Use the official PHP image
 FROM php:8.1-apache
 
-# تفعيل mod_rewrite (مهم لتطبيقات مثل Laravel)
-RUN a2enmod rewrite
+# Set the working directory
+WORKDIR /var/www/html
 
-# نسخ ملفات التطبيق إلى الحاوية
-COPY . /var/www/html/
+# Copy the application files to the container
+COPY . .
 
-# تثبيت امتدادات PHP المطلوبة
+# Install any dependencies (if needed)
 RUN docker-php-ext-install pdo pdo_mysql
 
-# تعيين المجلد العام (public) كمجلد العمل إذا كنت تستخدم Laravel
-WORKDIR /var/www/html/public
-
-# فتح المنفذ 80 (لـ Apache)
+# Expose the port that Apache is listening on
 EXPOSE 80
-
-# تشغيل Apache في الخلفية
-CMD ["apache2-foreground"]
