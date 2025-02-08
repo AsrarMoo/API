@@ -15,8 +15,6 @@ define('LARAVEL_START', microtime(true));
 | instead of starting the framework, which could cause an exception.
 |
 */
-$port = $_SERVER['PORT'] ?? 8000;
-$_SERVER['SERVER_PORT'] = $port;
 
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
