@@ -51,8 +51,9 @@
     "post-create-project-cmd": [
         "@php artisan key:generate --ansi"
     ],
-    "serve": "php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"
+    "start": "php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"
 }
+
 ,
     "extra": {
         "laravel": {
