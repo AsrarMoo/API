@@ -1,14 +1,13 @@
-# Use the official PHP image
 FROM php:8.1-apache
 
-# Set the working directory
-WORKDIR /var/www/html
+# تعيين مجلد العمل داخل الحاوية
+WORKDIR /app
 
-# Copy the application files to the container
+# نسخ ملفات المشروع إلى الحاوية
 COPY . .
 
-# Install any dependencies (if needed)
-RUN docker-php-ext-install pdo pdo_mysql
+# تثبيت التبعيات باستخدام Composer
+RUN composer install --no-dev --optimize-autoloader
 
-# Expose the port that Apache is listening on
 EXPOSE 80
+CMD ["apache2-foreground"]
