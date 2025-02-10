@@ -5,8 +5,6 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-echo "تم قراءة ملفات التطبيق بنجاح.";
-exit;
 
 /*
 |--------------------------------------------------------------------------
